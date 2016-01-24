@@ -1,6 +1,6 @@
 'use strict'
 
-todos = []
+todos = JSON.parse(localStorage.getItem 'todos') || []
 todoList = document.getElementById 'todo-list'
 todoFrom = document.getElementById 'todo-form'
 todoInput = document.querySelector '#todo-form input'
@@ -39,6 +39,8 @@ render = ->
     listItem.appendChild deleteButton
     todoList.appendChild listItem
 
+    localStorage.setItem 'todos', JSON.stringify todos
+
 addItem = (event) ->
   event.preventDefault()
 
@@ -50,3 +52,4 @@ addItem = (event) ->
   todoInput.value = ''
 
 todoFrom.addEventListener 'submit', addItem
+render()
