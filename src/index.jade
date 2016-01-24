@@ -5,7 +5,12 @@ html(lang="ja")
     title Todo List
     link(rel='stylesheet', href='styles/style.css', media='all')
   body
-    h1 schoo todolist
+    h1 TODO List
+    main
+      form#todo-form
+        input(type="text" placeholder="ex. 牛乳を買う")
+        button(type="submit") 追加
+      ul.todo-list
 
     // build:js scripts/main.js
     script(src='scripts/script.js')
